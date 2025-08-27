@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nich</title>
+
+    <link rel="icon" type="image/png" href="img/titleicon.png">
+    <link rel="shortcut icon" href="img/titleicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/titleicon.png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="custom-cursor"></div>
+<div class="center-images" id="centerImages"></div>
+<div class="container">
+    <!-- Left side - Button Grid -->
+    <div class="button-grid">
+        <button class="portfolio-btn" data-category="uiux">
+            <img src="img/WebsiteButtonsUI.png" alt="UI/UX">
+            <span>UI/UX</span>
+        </button>
+        <button class="portfolio-btn" data-category="pixelart">
+            <img src="img/WebsiteButtonsPixel.png" alt="Pixel Art">
+            <span>PIXEL ART</span>
+        </button>
+        <button class="portfolio-btn" data-category="productdesign">
+            <img src="img/WebsiteButtonsEmpty.png" alt="Web Design">
+            <span>PRODUCT</span>
+        </button>
+        <button class="portfolio-btn" data-category="logo">
+            <img src="img/WebsiteButtonsCircle.png" alt="logo">
+            <span>LOGO</span>
+        </button>
+        <button class="portfolio-btn" data-category="conceptart">
+            <img src="img/WebsiteButtonsConceptArt.png" alt="Illustration">
+            <span>CONCEPT ART</span>
+        </button>
+        <button class="portfolio-btn" data-category="threed">
+            <img src="img/WebsiteButtons3D.png" alt="3D" alt="threed">
+            <span>3D</span>
+        </button>
+    </div>
+
+    <!-- Center section -->
+    <div class="center-images">
+
+        <img src="img/WelcomeToMyPortfolio.png" alt="Banner" class="banner">
+        <p class="center-text">This is my personal portfolio. All content is my own and protected. Unauthorized use is prohibited</p>
+
+        <button class="center-btn" data-category="featuredworks">
+            <img src="img/WebsiteButtonsFlatFeaturedWorks.png" alt="featured" class="small">
+        </button>
+    </div>
+
+
+
+    <!-- Right side - Profile Card -->
+    <div class="profile-section">
+        <div class="profile-card">
+            <div class="profile-image">
+                <img src="img/pfp.png" alt="Profile">
+            </div>
+            <div class="profile-info">
+                <h2>Nich Vologin</h2>
+                <p class="title">Graphical Designer</p>
+                <p class="bio">Passionate about creating beautiful digital experiences through UI/UX design, pixel art, and creative branding solutions.</p>
+                <div class="skills">
+                    <span class="skill">Adobe</span>
+                    <span class="skill">Aseprite</span>
+                    <span class="skill">Figma</span>
+                    <span class="skill">Web Development</span>
+                    <span class="skill">Unity</span>
+                </div>
+                <div class="contact">
+                    <p class="profilecardlink"><a href="mailto:nichvologin@gmail.com">nichvologin@gmail.com</a></p>
+                    <p class="profilecardlink"><a href="https://github.com/qwujstr" target="_blank">https://github.com/qwujstr</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gallery Popup -->
+<div class="gallery-overlay" id="galleryOverlay">
+    <div class="gallery-popup" id="galleryPopup">
+        <button class="close-btn" id="closeBtn">✕</button>
+        <div class="gallery-container">
+            <button class="nav-btn prev-btn" id="prevBtn">&lt;</button>
+            <div class="gallery-content">
+                <img class="gallery-image" id="galleryImage" src="" alt="Gallery Image">
+            </div>
+            <button class="nav-btn next-btn" id="nextBtn">&gt;</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="script.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const el = document.querySelector(".center-images .small");
+
+        el.addEventListener("mousemove", (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 → 0.5
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+            const move = 10; // max px movement
+            el.style.transform = `translate(${x * move}px, ${y * move}px)`;
+        });
+
+        el.addEventListener("mouseleave", () => {
+            el.style.transform = "translate(0,0)";
+        });
+    });
+</script>
+</body>
+</html>
